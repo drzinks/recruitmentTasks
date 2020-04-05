@@ -15,6 +15,7 @@ public class RepositoryDetailsService {
 
     public RepositoryDetailsDTO getRepositoryDetails(String ownerName, String repositoryName){
         restTemplate = new RestTemplateBuilder().errorHandler(new RestTemplateResponseErrorHandler().setPath("/"+ownerName+"/"+repositoryName)).build();
+        System.out.println("fsd");
         ResponseEntity<RepositoryDetailsDTO> entity = restTemplate.getForEntity(uri+ownerName+"/"+repositoryName,RepositoryDetailsDTO.class);
         return entity.getBody();
     }
